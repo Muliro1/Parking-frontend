@@ -1,31 +1,33 @@
-import { StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native'
+import React from 'react'
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
-
-export default function TabOneScreen() {
+const app = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+        <Text style={styles.text}>Pay Park</Text>
     </View>
-  );
+  )
 }
+
+export default app
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    resizeMode: 'cover',
     justifyContent: 'center',
   },
-  title: {
-    fontSize: 20,
+  text: {
+    color: 'white',
+    fontSize: 42,
     fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  }
+})
