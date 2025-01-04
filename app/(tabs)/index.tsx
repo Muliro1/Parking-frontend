@@ -1,11 +1,14 @@
 import { View, Text, StyleSheet, ImageBackground } from 'react-native'
 import React from 'react'
 
+
+
 const app = () => {
-  return (
+ return (
     <View style={styles.container}>
-        <Text style={styles.text}>Pay Park</Text>
+      <Text style={styles.text}>Pay Park</Text>
     </View>
+    
   )
 }
 
@@ -17,8 +20,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   image: {
-    width: '100%',
-    height: '100%',
+    width: '50%',
+    height: '50%',
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
