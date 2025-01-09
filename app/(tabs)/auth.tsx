@@ -6,7 +6,7 @@ const auth = () => {
   return (
     <View style = {styles.container}>
       <Text style = {styles.title}>auth</Text>
-      <EditScreenInfo path="app/auth.tsx" />
+      <EditScreenInfo path="app/auth.mmtsx" />
     </View>
     
   )

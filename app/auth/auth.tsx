@@ -5,8 +5,8 @@ import EditScreenInfo from '@/components/EditScreenInfo';
 const auth = () => {
   return (
     <View style = {styles.container}>
-      <Text style = {styles.title}>auth</Text>
-      <EditScreenInfo path="app/auth.tsx" />
+      <Text style = {styles.title}>auth </Text>
+      <EditScreenInfo path="app/auth.jjtsx" />
     </View>
     
   )
