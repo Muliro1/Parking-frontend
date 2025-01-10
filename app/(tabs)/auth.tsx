@@ -1,41 +1,76 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import EditScreenInfo from '@/components/EditScreenInfo';
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
-const auth = () => {
+const RegistrationForm = () => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleRegister = () => {
+    if (password !== confirmPassword) {
+      Alert.alert('Error', 'Passwords do not match');
+      return;
+    }
+    // Handle registration logic here
+    Alert.alert('Success', 'Registration successful');
+  };
+
   return (
-    <View style = {styles.container}>
-      <Text style = {styles.title}>Auth</Text>
-      <EditScreenInfo path="app/auth.tsx" />
+    <View style={styles.container}>
+      <Text style={styles.title}>Create An Account</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Username"
+        value={username}
+        onChangeText={setUsername}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Confirm Password"
+        value={confirmPassword}
+        onChangeText={setConfirmPassword}
+        secureTextEntry
+      />
+      <Button title="Register" onPress={handleRegister} color="green"/>
     </View>
-    
-  )
-}
-
-export default auth
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    title: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: 'green',
-    },
-    separator: {
-      marginVertical: 30,
-      height: 1,
-      width: '80%',
-    },
-    text: {
-      color: 'green',
-      fontSize: 42,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      backgroundColor: 'rgba(0,0,0,0.5)',
-    }
-  });
-  
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 16,
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 16,
+    textAlign: 'center',
+    color: 'green',
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 12,
+    paddingHorizontal: 8,
+    borderRadius: 10,
+  },
+});
+
+export default RegistrationForm;

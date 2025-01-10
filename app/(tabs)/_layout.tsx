@@ -64,6 +64,7 @@ export default function TabLayout() {
         name="auth"
         options={{
           title: 'Auth tab',
+          headerTintColor: 'green',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Link href="/auth/auth" asChild>
