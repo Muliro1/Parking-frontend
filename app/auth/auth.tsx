@@ -6,7 +6,7 @@ const auth = () => {
   return (
     <View style = {styles.container}>
       <Text style = {styles.title}>auth </Text>
-      <EditScreenInfo path="app/auth.jjtsx" />
+      <EditScreenInfo path="app/auth.tsx" />
     </View>
     
   )
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 20,
       fontWeight: 'bold',
+      color: 'green',
     },
     separator: {
       marginVertical: 30,
