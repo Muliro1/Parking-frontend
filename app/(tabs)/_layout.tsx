@@ -63,9 +63,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="auth"
         options={{
-          title: 'Auth tab',
+          title: 'Register',
           headerTintColor: 'green',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
           headerRight: () => (
             <Link href="/auth/auth" asChild>
               <Pressable>

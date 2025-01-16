@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ImageBackground } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, SafeAreaView } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
@@ -8,9 +8,9 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 const app = () => {
  return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.text}></Text>
-    </View>
+    </SafeAreaView>
     
   )
 }
@@ -38,16 +38,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     backgroundColor: 'rgba(0,0,0,0.5)',
   },
-  button: {
-    backgroundColor: 'green',
-    padding: 10,
-    borderRadius: 8,
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-  },
+  
 })
