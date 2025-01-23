@@ -3,7 +3,6 @@ import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider, Layout } from '@ui-kitten/components';
 import { default as theme } from '../custom-theme.json'; 
 import { Provider as PaperProvider, Button } from 'react-native-paper';
 

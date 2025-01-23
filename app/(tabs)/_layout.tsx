@@ -1,9 +1,10 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, Text } from 'react-native';
+import { Link, Redirect, Tabs } from 'expo-router';
+import { ActivityIndicator, Pressable, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useAuth } from '../providers/auth-provider';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
@@ -20,6 +21,9 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { session, mounting } = useAuth();
+  if (mounting) return <ActivityIndicator />;
+  if (!session) return <Redirect href='/auth' />;
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

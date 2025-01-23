@@ -5,7 +5,11 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
+import { ToastProvider } from 'react-native-toast-notifications';
+import AuthProvider from './providers/auth-provider';
+import QueryProvider from './providers/query-provider';
+import { StripeProvider } from '@stripe/stripe-react-native';
+import NotificationProvider from './providers/notification-provider';
 import { useColorScheme } from '@/components/useColorScheme';
 
 export {
@@ -49,12 +53,16 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="auth/auth" options={{ headerShown: true, title:'Auth Screen', headerTintColor: 'green'}}/>
-      </Stack>
-    </ThemeProvider>
+    <ToastProvider>
+      <AuthProvider>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+            <Stack.Screen name="auth/auth" options={{ headerShown: true, title:'Auth Screen', headerTintColor: 'green'}}/>
+          </Stack>
+        </ThemeProvider>
+      </AuthProvider>
+    </ToastProvider>
   );
 }
