@@ -2,16 +2,24 @@ import { View, Text, StyleSheet, ImageBackground, SafeAreaView } from 'react-nat
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider, Layout } from '@ui-kitten/components';
+import { default as theme } from '../custom-theme.json'; 
+import { Provider as PaperProvider, Button } from 'react-native-paper';
 
 
 
 
 const app = () => {
  return (
+  <PaperProvider>
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}></Text>
+      <Button mode="contained" onPress={() => console.log('Pressed')}>
+            Press me
+      </Button>
     </SafeAreaView>
-    
+  </PaperProvider>
   )
 }
 
