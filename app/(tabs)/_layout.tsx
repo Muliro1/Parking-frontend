@@ -5,6 +5,11 @@ import { ActivityIndicator, Pressable, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useAuth } from '../providers/auth-provider';
+import { ToastProvider } from 'react-native-toast-notifications';
+import AuthProvider from '../providers/auth-provider';
+import QueryProvider from '../providers/query-provider';
+import { StripeProvider } from '@stripe/stripe-react-native';
+import NotificationProvider from '../providers/notification-provider';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
@@ -21,9 +26,9 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const { session, mounting } = useAuth();
-  if (mounting) return <ActivityIndicator />;
-  if (!session) return <Redirect href='/auth' />;
+  //const { session, mounting } = useAuth();
+  //if (mounting) return <ActivityIndicator />;
+  //if (!session) return <Redirect href='/auth' />;
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -68,6 +73,7 @@ export default function TabLayout() {
         name="auth"
         options={{
           title: 'Register',
+          headerShown: false,
           headerTintColor: 'green',
           tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
           headerRight: () => (
@@ -88,5 +94,6 @@ export default function TabLayout() {
       />
     </Tabs>
   </SafeAreaView>
+  
   );
 }

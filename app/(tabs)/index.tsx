@@ -11,6 +11,10 @@ import { Provider as PaperProvider, Button } from 'react-native-paper';
 
 const app = () => {
  return (
+  <ImageBackground       source={{
+    uri: 'https://images.pexels.com/photos/682933/pexels-photo-682933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  }}
+  style={styles.backgroundImage}>
   <PaperProvider>
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}></Text>
@@ -19,6 +23,7 @@ const app = () => {
       </Button>
     </SafeAreaView>
   </PaperProvider>
+  </ImageBackground>
   )
 }
 
@@ -29,6 +34,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   image: {

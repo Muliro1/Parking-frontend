@@ -13,6 +13,9 @@ import { Redirect, Stack } from 'expo-router';
 import { supabase } from '../lib/supabase';
 import { Toast } from 'react-native-toast-notifications';
 import { useAuth } from '../providers/auth-provider';
+import { useNavigation } from '@react-navigation/native';
+import { useRouter } from 'next/router';
+
 
 const authSchema = zod.object({
   email: zod.string().email({ message: 'Invalid email address' }),
@@ -23,8 +26,9 @@ const authSchema = zod.object({
 
 export default function Auth() {
   const { session } = useAuth();
+  const navigation = useNavigation();
 
-  if (session) return <Redirect href='/' />;
+  if (session) return <Redirect href='./index' />;
 
   const { control, handleSubmit, formState } = useForm({
     resolver: zodResolver(authSchema),
@@ -45,6 +49,7 @@ export default function Auth() {
         placement: 'top',
         duration: 1500,
       });
+     // navigation.navigate('auth')
     }
   };
 

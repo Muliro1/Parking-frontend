@@ -11,6 +11,7 @@ import QueryProvider from './providers/query-provider';
 import { StripeProvider } from '@stripe/stripe-react-native';
 import NotificationProvider from './providers/notification-provider';
 import { useColorScheme } from '@/components/useColorScheme';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -53,16 +54,21 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
+    
     <ToastProvider>
       <AuthProvider>
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      
+        
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
             <Stack.Screen name="auth/auth" options={{ headerShown: true, title:'Auth Screen', headerTintColor: 'green'}}/>
           </Stack>
-        </ThemeProvider>
+        
+        
       </AuthProvider>
-    </ToastProvider>
+      </ToastProvider>
+    
   );
 }
+ 
