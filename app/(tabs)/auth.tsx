@@ -44,6 +44,7 @@ export default function Auth() {
     if (error) {
       alert(error.message);
     } else {
+      navigation.navigate('index');
       Toast.show('Signed in successfully', {
         type: 'success',
         placement: 'top',

@@ -9,6 +9,7 @@ import { Provider as PaperProvider, Button } from 'react-native-paper';
 
 
 
+
 const app = () => {
  return (
   <ImageBackground       source={{
@@ -48,6 +49,10 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.7)',
   },
   text: {
     color: 'green',

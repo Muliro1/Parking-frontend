@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ImageBackground, Alert, TouchableOpacity, SafeAreaView } from 'react-native';
 import { supabase } from '../lib/supabase'
+import { Provider as PaperProvider, Button } from 'react-native-paper';
+
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,10 +13,19 @@ const LoginForm = () => {
   };
 
   return (
+    <ImageBackground       source={{
+      uri: 'https://images.pexels.com/photos/682933/pexels-photo-682933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    }}
+    style={styles.backgroundImage}>
+      <SafeAreaView style={styles.container}>
+    <PaperProvider>
 
       <TouchableOpacity style={styles.button} onPress={handleSignOut}>
         <Text style={styles.buttonText}>Sign Out</Text>
       </TouchableOpacity>
+    </PaperProvider>
+    </SafeAreaView>
+    </ImageBackground>
 
   );
 };
@@ -30,6 +41,12 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     textAlign: 'center',
     color: 'green',
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   input: {
     height: 40,
