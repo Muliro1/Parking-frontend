@@ -44,13 +44,13 @@ export default function Auth() {
     if (error) {
       alert(error.message);
     } else {
-      navigation.navigate('index');
+      //navigation.navigate('index');
       Toast.show('Signed in successfully', {
         type: 'success',
         placement: 'top',
         duration: 1500,
       });
-     // navigation.navigate('auth')
+      navigation.navigate('auth')
     }
   };
 
