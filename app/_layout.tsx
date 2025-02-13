@@ -57,15 +57,11 @@ function RootLayoutNav() {
     
     <ToastProvider>
       <AuthProvider>
-      
-        
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
             <Stack.Screen name="auth/auth" options={{ headerShown: true, title:'Auth Screen', headerTintColor: 'green'}}/>
           </Stack>
-        
-        
       </AuthProvider>
       </ToastProvider>
     

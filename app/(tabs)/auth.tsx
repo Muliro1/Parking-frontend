@@ -28,7 +28,7 @@ export default function Auth() {
   const { session } = useAuth();
   const navigation = useNavigation();
 
-  if (session) return <Redirect href='./index' />;
+  if (session) return <Redirect href='/' />;
 
   const { control, handleSubmit, formState } = useForm({
     resolver: zodResolver(authSchema),
@@ -50,7 +50,7 @@ export default function Auth() {
         placement: 'top',
         duration: 1500,
       });
-      navigation.navigate('auth')
+      //navigation.navigate('/')
     }
   };
 
