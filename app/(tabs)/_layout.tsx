@@ -43,14 +43,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Pay Park',
-          headerShown: true,
+          title: 'Pay Park ',
+          headerShown: false,
           headerTintColor: 'green',
           tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
           headerTitle: () => (
             <SafeAreaView style={{ alignItems: 'center' }}>
               <FontAwesome name="car" size={20} color="green" />
-              <Text style={{ color: 'green', fontSize: 18 }}>Pay Park</Text>
+              <Text style={{ color: 'green', fontSize: 18 }}>Pay Park parking spots</Text>
             </SafeAreaView>
           ),
           headerRight: () => (
