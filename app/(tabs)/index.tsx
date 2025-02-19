@@ -1,46 +1,40 @@
-import { View, Text, StyleSheet, ImageBackground, SafeAreaView } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
+import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import * as eva from '@eva-design/eva';
-import { default as theme } from '../custom-theme.json'; 
+import { default as theme } from '../custom-theme.json';
 import { Provider as PaperProvider, Button } from 'react-native-paper';
-import { TouchableOpacity } from 'react-native';
 
-
-
-
-
-const app = () => {
- return (
-  <ImageBackground       source={{
-    uri: 'https://images.pexels.com/photos/682933/pexels-photo-682933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  }}
-  style={styles.backgroundImage}>
-  <PaperProvider>
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.text}></Text>
-      <View style={styles.container}>
+const App = () => {
+  return (
+    <PaperProvider>
+      <ImageBackground
+        source={{
+          uri: 'https://images.pexels.com/photos/682933/pexels-photo-682933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        }}
+        style={styles.backgroundImage}
+      >
         <View style={styles.overlay} />
-        <Text style={styles.text}>Choose Your Parking Option</Text>
-        <TouchableOpacity style={styles.optionButton}>
-          <Text style={styles.optionText}>Daily Parking</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton}>
-          <Text style={styles.optionText}>Seasonal Parking</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton}>
-          <Text style={styles.optionText}>Reserved Parking</Text>
-        </TouchableOpacity>
-      </View>
-
-    </SafeAreaView>
-  </PaperProvider>
-  </ImageBackground>
-  )
-}
-
-export default app
+        <SafeAreaView style={styles.container}>
+        <FontAwesome name="car" size={20} color="green" />
+          <Text style={styles.text}>Pay Park</Text>
+          <View style={styles.buttonContainer}>
+          <Button mode="contained" style={styles.optionButton} onPress={() => {}}>
+            Daily Parking
+          </Button>
+          <Button mode="contained" style={styles.optionButton} onPress={() => {}}>
+            Seasonal Parking
+          </Button>
+          <Button mode="contained" style={styles.optionButton} onPress={() => {}}>
+            Reserved Parking
+          </Button>
+          </View>
+        </SafeAreaView>
+      </ImageBackground>
+    </PaperProvider>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -55,13 +49,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  image: {
-    width: '50%',
-    height: '50%',
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-  },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0,0,0,0.7)',
@@ -72,18 +59,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     backgroundColor: 'rgba(0,0,0,0.5)',
+    marginBottom: 20,
+  },
+  buttonContainer: {
+    flex: 1,
+    justifyContent: 'space-around',
+    width: '80%',
   },
   optionButton: {
-    backgroundColor: 'rgba(255,255,255,0.8)',
-    padding: 15,
     marginVertical: 10,
     width: '80%',
-    alignItems: 'center',
-    borderRadius: 10,
   },
-  optionText: {
-    fontSize: 24,
-    color: 'black',
-  },
-  
-})
+});
+
+export default App;

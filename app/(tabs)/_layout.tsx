@@ -49,7 +49,6 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
           headerTitle: () => (
             <SafeAreaView style={{ alignItems: 'center' }}>
-              <FontAwesome name="car" size={20} color="green" />
               <Text style={{ color: 'green', fontSize: 18 }}>Pay Park parking spots</Text>
             </SafeAreaView>
           ),
