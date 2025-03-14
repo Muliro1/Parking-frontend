@@ -2,11 +2,23 @@ import { View, Text, StyleSheet, ImageBackground, SafeAreaView } from 'react-nat
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import * as eva from '@eva-design/eva';
 import { default as theme } from '../custom-theme.json';
 import { Provider as PaperProvider, Button } from 'react-native-paper';
+import DailyParkingForm from './DailyParkingForm';
+import ReservedParkingForm from './ReservedParkingForm';
+import SeasonalParkingForm from './SeasonalParkingForm';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+
+
+type Props = {
+  navigation: NavigationProp<any>;
+};
 
 const App = () => {
+  const navigation = useNavigation()
   return (
     <PaperProvider>
       <ImageBackground
@@ -20,13 +32,13 @@ const App = () => {
         <FontAwesome name="car" size={20} color="green" />
           <Text style={styles.text}>Pay Park</Text>
           <View style={styles.buttonContainer}>
-          <Button mode="contained" style={styles.optionButton} onPress={() => {}}>
+          <Button mode="contained" style={styles.optionButton} onPress={() => navigation.navigate('DailyParkingForm')}>
             Daily Parking
           </Button>
-          <Button mode="contained" style={styles.optionButton} onPress={() => {}}>
+          <Button mode="contained" style={styles.optionButton} onPress={() => navigation.navigate('SeasonalParkingForm')}>
             Seasonal Parking
           </Button>
-          <Button mode="contained" style={styles.optionButton} onPress={() => {}}>
+          <Button mode="contained" style={styles.optionButton} onPress={() => navigation.navigate('ReservedParkingForm')}>
             Reserved Parking
           </Button>
           </View>

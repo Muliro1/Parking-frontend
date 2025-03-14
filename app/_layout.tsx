@@ -1,5 +1,5 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, NavigationContainer, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -12,6 +12,9 @@ import { StripeProvider } from '@stripe/stripe-react-native';
 import NotificationProvider from './providers/notification-provider';
 import { useColorScheme } from '@/components/useColorScheme';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import DailyParkingForm from './(tabs)/DailyParkingForm';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+const StackNav = createNativeStackNavigator();
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -47,7 +50,7 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (<RootLayoutNav />)
 }
 
 function RootLayoutNav() {
@@ -58,9 +61,10 @@ function RootLayoutNav() {
     <ToastProvider>
       <AuthProvider>
           <Stack>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen  name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
             <Stack.Screen name="auth/auth" options={{ headerShown: true, title:'Auth Screen', headerTintColor: 'green'}}/>
+            <Stack.Screen name="(ParkingForms)" options={{ headerShown: true, title: 'Daily'}} />
           </Stack>
       </AuthProvider>
       </ToastProvider>
