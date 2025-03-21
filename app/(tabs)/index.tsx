@@ -11,13 +11,14 @@ import DailyParkingForm from './DailyParkingForm';
 import ReservedParkingForm from './ReservedParkingForm';
 import SeasonalParkingForm from './SeasonalParkingForm';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+import Slideshow from '../../components/slideShow';
 
 
 type Props = {
   navigation: NavigationProp<any>;
 };
 
-const App = () => {
+const IndexScreen = () => {
   const navigation = useNavigation()
   return (
     <PaperProvider>
@@ -31,6 +32,7 @@ const App = () => {
         <SafeAreaView style={styles.container}>
         <FontAwesome name="car" size={20} color="green" />
           <Text style={styles.text}>Pay Park</Text>
+          <Slideshow />
           <View style={styles.buttonContainer}>
           <Button mode="contained" style={styles.optionButton} onPress={() => navigation.navigate('DailyParkingForm')}>
             Daily Parking
@@ -84,4 +86,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default IndexScreen;

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   View,
   Text,
@@ -50,7 +51,7 @@ export default function Auth() {
         placement: 'top',
         duration: 1500,
       });
-      //navigation.navigate('/')
+      //navigation.navigate('index')
     }
   };
 
