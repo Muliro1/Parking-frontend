@@ -1,3 +1,9 @@
+type RootStackParamList = {
+  DailyParkingForm: undefined;
+  SeasonalParkingForm: undefined;
+  ReservedParkingForm: undefined;
+};
+
 import { View, Text, StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -19,7 +25,7 @@ type Props = {
 };
 
 const IndexScreen = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   return (
     <PaperProvider>
       <ImageBackground
@@ -32,7 +38,7 @@ const IndexScreen = () => {
         <SafeAreaView style={styles.container}>
         <FontAwesome name="car" size={20} color="green" />
           <Text style={styles.text}>Pay Park</Text>
-          <Slideshow />
+          
           <View style={styles.buttonContainer}>
           <Button mode="contained" style={styles.optionButton} onPress={() => navigation.navigate('DailyParkingForm')}>
             Daily Parking
