@@ -5,7 +5,6 @@ import LoginForm from '../(tabs)/login';
 import IndexScreen from '../(tabs)/index';
 import DailyParkingForm from '../(tabs)/DailyParkingForm';
 import ReservedParkingForm from '../(tabs)/ReservedParkingForm';
-import SeasonalParkingForm from '../(tabs)/SeasonalParkingForm';
 
 const Stack = createStackNavigator();
 
